@@ -20,5 +20,5 @@ powershell_script 'set windows timezone' do
   code <<-EOH
   tzutil.exe /s "#{node['timezone_iii']['timezone']}"
   EOH
-  # not_if { to do }
+  not_if { shell_out('tzutil.exe /g').stdout.include?(node['timezone_iii']['timezone']) }
 end
