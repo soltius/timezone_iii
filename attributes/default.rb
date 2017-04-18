@@ -16,8 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-
 # Use universal time if no other timezone is specified
 default['timezone_iii']['timezone'] = value_for_platform_family(
   'debian'  => 'Etc/UTC',
