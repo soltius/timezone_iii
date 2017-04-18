@@ -23,5 +23,5 @@
 # Source: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html
 # (as of 2014-12-18)
 
-include_recipe 'timezone_iii::linux-generic'
+include_recipe 'timezone_iii::linux_generic'
 include_recipe 'timezone_iii::rhel'

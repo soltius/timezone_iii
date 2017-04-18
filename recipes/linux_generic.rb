@@ -1,6 +1,6 @@
 #
 # Cookbook:: timezone_iii
-# Recipe:: linux-generic
+# Recipe:: linux_generic
 #
 # Copyright:: 2017, Corey Hemminger
 #
@@ -23,11 +23,11 @@ timezone_data_file = File.join(node['timezone_iii']['tzdata_dir'], node['timezon
 localtime_path = node['timezone_iii']['localtime_path']
 
 ruby_block 'confirm timezone' do
-  block {
+  block do
     unless File.exist?(timezone_data_file)
       raise "Can't find #{timezone_data_file}!"
     end
-  }
+  end
 end
 
 if node['timezone_iii']['use_symlink']
@@ -44,9 +44,6 @@ else
     owner 'root'
     group 'root'
     mode '0644'
-    not_if {
-      File.symlink?(localtime_path) and
-        Chef::Log.error "You must remove symbolic link at #{localtime_path} or set attribute ['timezone']['use_symlink'] = true"
-    }
+    not_if { File.symlink?(localtime_path) && Chef::Log.error("You must remove symbolic link at #{localtime_path} or set attribute ['timezone']['use_symlink'] = true") }
   end
 end

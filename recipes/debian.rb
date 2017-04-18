@@ -19,7 +19,7 @@
 # Set timezone for Debian family:  Put the timezone string in plain text in
 # /etc/timezone and then re-run the tzdata configuration to pick it up.
 
-TIMEZONE_FILE = '/etc/timezone'
+TIMEZONE_FILE = '/etc/timezone'.freeze
 
 template TIMEZONE_FILE do
   source 'timezone.conf.erb'
