@@ -24,7 +24,7 @@ when 'linux'
   )
   case node['platform_family']
   when 'rhel', 'fedora'
-      include_recipe { node['platform_version'].split('.')[0].to_i >= 7 ? 'timezone_iii::rhel7' : 'timezone_iii::rhel' }
+    include_recipe { node['platform_version'].split('.')[0].to_i >= 7 ? 'timezone_iii::rhel7' : 'timezone_iii::rhel' }
   when 'debian', 'pld', 'amazon'
     include_recipe "timezone_iii::#{node['platform_family']}"
   else
@@ -35,7 +35,7 @@ when 'linux'
     log message do
       level :warn
       not_if { %w(centos gentoo rhel amazon).include? node['platform_family'] }
-      only_if { node['os'] == 'linux'}
+      only_if { node['os'] == 'linux' }
     end
     include_recipe 'timezone_iii::linux_generic'
   end
