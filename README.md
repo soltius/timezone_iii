@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/Stromweld/timezone_iii/badges/gpa.svg)](https://codeclimate.com/github/Stromweld/timezone_iii)
+[![Issue Count](https://codeclimate.com/github/Stromweld/timezone_iii/badges/issue_count.svg)](https://codeclimate.com/github/Stromweld/timezone_iii)
+
 # timezone_iii
 
 The Timezone III cookbook contains recipes for installing the latest tzdata
