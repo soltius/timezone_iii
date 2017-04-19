@@ -19,8 +19,8 @@
 case node['os']
 when 'linux'
   package value_for_platform_family(
-    'gentoo'  => 'timezone-data',
-    'default' => 'tzdata'
+    gentoo: 'timezone-data',
+    default: 'tzdata'
   )
   case node['platform_family']
   when 'rhel', 'fedora'

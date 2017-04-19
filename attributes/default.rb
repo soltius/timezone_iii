@@ -18,8 +18,8 @@
 
 # Use universal time if no other timezone is specified
 default['timezone_iii']['timezone'] = value_for_platform_family(
-  'debian'  => 'Etc/UTC',
-  'default' => 'UTC'
+  debian: 'Etc/UTC',
+  default: 'UTC'
 )
 
 # Path to tzdata directory
