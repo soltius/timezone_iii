@@ -24,7 +24,7 @@ when 'linux'
   )
   case node['platform_family']
   when 'rhel', 'fedora'
-    include_recipe { node['platform_version'].split('.')[0].to_i >= 7 ? 'timezone_iii::rhel7' : 'timezone_iii::rhel' }
+    include_recipe node['platform_version'].split('.')[0].to_i >= 7 ? 'timezone_iii::rhel7' : 'timezone_iii::rhel'
   when 'debian', 'pld', 'amazon'
     include_recipe "timezone_iii::#{node['platform_family']}"
   else
