@@ -1,5 +1,9 @@
 # CHANGELOG for timezone_ii
 
+## 1.0.4 (6/6/2017)
+
+- [badsector3] - Temp fix for recent Ubuntu releases with local time file overriding timezone file
+
 ## 1.0.3 (4/20/2017)
 
 - [Corey Hemminger] - fixed linux include_recipe line that was being skipped
