@@ -16,17 +16,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+TZ_PACKAGE = if node['platform_family'] == 'sles' || 'suse'
+               'timezone'
+             else
+               'tzdata'
+             end
+
 case node['os']
 when 'linux'
   package value_for_platform_family(
     gentoo: 'timezone-data',
-    default: 'tzdata'
+    default: TZ_PACKAGE
   )
   case node['platform_family']
   when 'rhel', 'fedora'
     include_recipe node['platform_version'].split('.')[0].to_i >= 7 ? 'timezone_iii::rhel7' : 'timezone_iii::rhel'
   when 'debian', 'pld', 'amazon'
     include_recipe "timezone_iii::#{node['platform_family']}"
+  when 'sles', 'suse'
+    include_recipe "timezone_iii::sles"
   else
     # Load the generic Linux recipe if there's no better known way to change the
     # timezone.  Log a warning (unless this is known to be the best way on a
