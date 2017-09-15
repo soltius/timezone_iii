@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TZ_PACKAGE = if node['platform_family'] == 'suse'
+TZ_PACKAGE = if node['platform'] == 'suse'
                'timezone'
              else
                'tzdata'
